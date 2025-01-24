@@ -1,0 +1,30 @@
+Change logs:
+
+make database for commands: id, cmd_name, cmd_arguments, cmd_success, cmd_fail, cmd_desc, etc
+
+setup DB to hold cmd history, and log history
+make logs a command to start logging?
+
+logging window displays remote logs when connected, else displays local logs which has info coming in from outsiders
+
+remote logging window shows commands and responses from the connected target
+
+while connected to remote cannot receive local logs.
+
+does not take over remote terminal while connected remotely.
+
+cannot perform local tasks while connected to remote
+
+REDO:
+(half the database)
+ database for holding connected info
+ entire cmd engine
+ command processing
+
+TO ADD:
+     default software
+     process list
+
+
+IDEAS:
+     trojans that latch onto files and dont lose functionality

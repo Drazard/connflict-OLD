@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/ico" href="favico.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> --}}
+    <link rel="stylesheet" href="/style.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
+    <title>CONNFLICT</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <div class="main-container" id="main-container">
+        {{!-- Desktop --}}
+        <div class="gui" id="gui">
+
+            {{!-- <div class="cmd-wrapper" id="cmd_wrapper"> --}}
+                {{!-- <div class="cmd-container" id="cmd_container">
+                    <div class="cmd-header">
+                    </div>
+                    <div class="cmd-body" id="cmd_body">
+                        <ul id="cmd_messages"></ul>
+                    </div>
+                    <form class="cmd-form" id="cmd_form" action="">
+                            <input class="cmd-input" id="cmd_input" placeholder=">_ localhost" autocomplete="off" /><button style="display:none;"></button>
+                        </form>
+                </div> --}}
+                {{!-- <div class="keylog-container" id="keylog_container">
+                    <div class="cmdheader">
+                    </div>
+                    <div class="cmd-body" id="keylog_body" >
+                        <ul id="keylog_messages"></ul>
+                    </div>
+                    <div class="cmd-footer" id="cmd_footer">
+                        
+                    </div>
+                    <form class="cmd-form" id="keylog_form" action="">
+                            <input class="cmd-input" id="keylog_input" placeholder=">_ keyloggers" autocomplete="off" disabled /><button style="display:none;"></button>
+                        </form>
+                </div>
+                <div class="log-container" id="log_container">
+                    <div class="cmdheader">
+                    </div>
+                    <div class="cmd-body" id="log_body" >
+                        <ul id="log_messages"></ul>
+                    </div>
+                    <div class="cmd-footer" id="cmd_footer">
+                        <form class="cmd-form" id="log_form" action="">
+                            <input class="cmd-input" id="log_input" placeholder=">_ remotehost" autocomplete="off" /><button style="display:none;"></button>
+                        </form>
+                    </div>
+                </div>
+            </div> --}}
+
+
+            {{!-- <div class="container" id="web_browser" style="display:none">
+                <div class="titlebar" id="web_browserheader">
+                    
+                </div>
+                <div class="row">
+                    <div class="column left">
+                        <div style="float:right">
+                            <span class="dot" style="background:#5AC05A;"></span>
+                            <span class="dot" style="background:#FDD800;"></span>
+                            <span class="dot" style="background:#ED594A;"></span>                              
+                        </div>
+                    </div>
+                    <div class="column middle">
+                        <input type="text" placeholder="https://" id="addressbar">
+                    </div>
+                    <div class="column right">
+                        <div style="float:left">
+                            <i class="homepageicon" id="homepage_icon"></i><center></center>                      
+                        </div>
+                    </div>
+                </div>
+                <div class="content" id="webcontent"> 
+                    
+                </div>
+            </div> --}}
+
+            <div class="icon-container">
+                <i id="recyclebin-icon" class="noselect"></i>Recycle Bin
+                <i id="network-icon"class="noselect"></i>Network
+                <i id="transfer-icon"class="noselect"></i>Transfers
+                <i id="configfile-icon"class="noselect"></i>Config
+                <i id="batch-icon"class="noselect"></i>Scripts
+                <i id="app-icon"class="noselect"></i>App
+                <i id="textfile-icon"class="noselect"></i>notepad.exe
+                <i id="help-icon" onclick="focusMethod()"ondblclick="help()"class="noselect"></i>Help
+            </div>
+
+            <div class="startmenu-containter"id="startmenu_containter">
+                    START MENU!
+            </div>
+
+            
+
+
+            {{!-- Chat window --}}
+            <div class="window-container" id="chat-container"style="display:none">
+                <div class="window-titlebar"id="chat-containerheader">
+                    <span class="window-title"><i class="title-icon" id="network2-icon-small"></i>IRC Chat</span>
+                    <span class="window-close">x</span>
+                
+                </div>
+                <div class="window-body">
+                    <div class="chat-contents">
+                        <div class="chat-messages" id="chat-messages">
+                    
+                        </div>
+                        <input class="chat-input" id="chat-input"> 
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Browser Window --}}
+            <div class="window-container" id="browser-container"style="display:none">
+                <div class="window-titlebar"id="browser-containerheader">
+                    <span class="window-title"><i class="title-icon" id="network2-icon-small"></i>Browser New</span>
+                    <span class="window-close">x</span>
+                </div>
+                <i class="homepageicon" id="homepage_icon"></i>
+                <input class="browser-input" id="browser-input"placeholder="https://">
+                <div class="window-body">
+                    <div class="browser-contents">
+                        <iframe id="browser_content_iframe" srcdoc="<h3>Browser Window</h3><p>for browing the webs..</p>"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Local Terminal window --}}
+            <div class="window-container terminal-container" id="localterminal-window">
+                <div class="window-titlebar"id="localterminal-windowheader">
+                    <span class="window-title"><i id="network2-icon-small"></i>SSHLocal <span id='localip'></span></span>
+                    <span class="window-close">x</span>
+                </div>
+                <div class="terminal-body" id="localterminal-body">
+                    <div class="terminal-contents">
+                        <div class="terminal-messages" id="localterminal-messages">
+                     
+                        </div>
+                        <input class="terminal-input" id="localterminal-input" placeholder=">_" autocomplete="off"> 
+                    </div>
+                </div>
+            </div>
+
+            {{!-- remote terminal window --}}
+            <div class="window-container terminal-container" id="remoteterminal-window"style="display:none">
+                <div class="window-titlebar"id="remoteterminal-windowheader">
+                    <span class="window-title"><i class="title-icon" id="network2-icon-small"></i>SSHRemote </span>
+                    <span class="window-close">x</span>
+                    <span class="title-ip" id='remoteip'></span>
+                </div>
+                <div class="window-body terminal-body" id="remoteterminal-body">
+                    <div class="terminal-contents">
+                        <div class="terminal-messages" id="remoteterminal-messages">
+                     
+                        </div>
+                        <input class="terminal-input" id="remoteterminal-input" placeholder=">_" autocomplete="off"> 
+                    </div>
+                </div>
+            </div>
+
+            {{!-- Keylog window --}}
+            <div class="window-container keylog-container" id="keylog-window">
+                <div class="window-titlebar"id="keylog-windowheader">
+                    <span class="window-title"><i class="title-icon" id="network2-icon-small"></i>Keylogger </span>
+                    <span class="window-close">x</span>
+                    <span class="title-ip" id='remoteip'></span>
+                </div>
+                <div class="window-body terminal-body" id="keylog-body">
+                    <div class="terminal-contents">
+                        <div class="terminal-messages" id="keylog-messages">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+        </div>      
+
+        {{!-- Task bar --}}
+            <div class="taskbar" id="taskbar">
+                <i class="taskbar-left"></i>
+                <button class="start-button" id="start_btn">
+                    <i class="starticon"></i><center></center>
+                </button>
+                <button class="tbar-button" id="cht_btn">
+                    <i class="chaticon"></i> Chat Window
+                </button>
+                <button class="tbar-button" id="net_btn">
+                    <i class="ieicon"></i> Internet
+                </button>
+                <button class="tbar-button" id="localterm_btn">
+                    <i class="termicon"></i> SSH Local
+                </button>
+                <button class="tbar-button" id="keylog_btn">
+                    <i class="termicon"></i> Keylogs
+                </button>
+                <button class="tbar-button" id="remoteterm_btn" >
+                    <i class="termicon"></i> SSH Remote
+                </button>
+                <div class="tbar-clock" id="timeclock">
+                    TIMECLOCK
+                </div>
+            </div>
+    </div>
+    
+    
+</tbody>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/game2.js"></script>
+<script id = "webbrowser_script" src=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>
+</body>
+</html>
+
+
+

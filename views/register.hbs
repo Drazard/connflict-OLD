@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/ico" href="favico.ico">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> --}}
+        <link rel="stylesheet" href="/register.css">
+        <title>CONNFLICT</title>
+        <script>
+            function removebutton(){
+                document.getElementById('regbutton').style.display = "none";
+            }
+        </script>
+    </head>
+    <body>
+        <center><img src="https://www.connflict.com:3000/connlogo.png" class="sitelogo"></center>
+
+
+
+        <form id="accesspanel" action="/auth/register" method="post">
+            <h1 id="litheader">IDENTIFICATION REQUIRED</h1>
+            <div class="inset">
+                <p>
+                    <input type="text" id="name" name="name"  placeholder="ALIAS">
+                </p>
+                <p>
+                <input type="text" name="email" id="email" placeholder="EMAIL">
+                </p>
+                <p>
+                {{!-- <input type="checkbox" name="agecheck" id="agecheck" value="true"> --}}
+                <center><small><small> ACCESS CODES RANDOMLY GENERATED  </small></small></center>
+                </p>
+                <div style="text-align: center;">
+                </div>
+                <input class="loginLoginValue" type="hidden" name="service" value="login" />
+            </div>
+            <p class="p-container">
+                <input type="submit" name="Login" id="go" value="Request Access">
+            </p>
+            <center><a href="https://www.connflict.com:3000/login">Authorized Users</a></center
+            <center><a href="https://www.connflict.com:3000/forgotpass">Forgot Password</a></center>>
+        </form>
+
+        {{!-- REGISTRATION CLOSED --}}
+
+{{!-- 
+        <form id="accesspanel">
+            <h1 id="litheader">REGISTRATION CLOSED</h1>
+            <div class="inset">
+                <center><img src="locked.jpg" style="width: 240px;"></center>
+            </div>
+            <center><a href="https://connflict.com:3000/login">Authorized Users</a></center>
+        </form>  --}}
+
+
+<center><p>
+    https://discord.gg/KCw5zGFshN - Official Discord
+</p></center>
+    
+        {{#if message}}
+            <h4 class="alert alert-danger mt-4"><p><br><br><center>{{message}}</center></p></h4>
+        {{/if}}
+    </body>
+</html>
