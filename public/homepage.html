@@ -1,0 +1,152 @@
+<style>
+    body, html {
+  height: 100%;
+  width:100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  /* border-radius: 10px; */
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: rgb(0, 0, 0);
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: rgb(212, 211, 211);}
+#Finances {background-color: rgb(212, 211, 211);}
+#Shop {background-color: rgb(212, 211, 211);}
+#Whois {background-color: rgb(212, 211, 211);}
+#Bounties {background-color: rgb(212, 211, 211);}
+  </style>
+  
+  <button class="tablink" onclick="openPage('Home', this, 'black')" id="defaultOpen">Home</button>
+  <button class="tablink" onclick="openPage('Finances', this, 'black')">Finances</button>
+  <button class="tablink" onclick="openPage('Shop', this, 'black')">Shop</button>
+  <button class="tablink" onclick="openPage('Whois', this, 'black')">Whois</button>
+  <button class="tablink" onclick="openPage('Bounties', this, 'black')">Bounties</button>
+  
+  <div id="Home" class="tabcontent">
+    <!-- <h3>Home</h3> -->
+    
+    <p>News:</p>
+    <ul>
+        <li>Overhauled the game 'browser'</li>
+        <li>added terminal lockout detection</li>
+        <li>fixed some bugs</li>
+        <li>removed some unnecessary code</li>
+    </ul>
+    <p>todo:</p>
+    <ul>
+        <li>fix dupe chat bug</li>
+        <li>keep record of bans</li>
+        <li>create ban timeout</li>
+        <li>create chat ban seperate from gameban</li>
+        <li>add the commands back to terminal</li>
+        <li>make some more moderation tools</li>
+        <li>finish process engine</li>
+        <li>start game bans engine</li>
+        <li>create some bounty system</li>
+        <li>add player hardware</li>
+    </ul>
+    <p>PC status:</p>
+    <ul>
+        <li id="pcstatus"></li>
+
+    </ul>
+    <p>Leaderboards</p>
+  </div>
+  
+  <div id="Finances" class="tabcontent">
+    <!-- <h3>Finances</h3> -->
+    <p>BTC login</p>
+    <p>current BTC price: $3500</p>
+    <p>Burst login</p>
+    <p>current BURST price: $16</p>
+    <p>Bank 1 login</p>
+    <p>Bank 2 login</p>
+    <p>Bank 3 login</p>
+    <p>Bank 4 login</p>
+    <p>Bank 5 login</p>
+  </div>
+  
+  <div id="Shop" class="tabcontent">
+    <!-- <h3>Shop</h3> -->
+    <p>buy some things.</p>
+  </div>
+
+  <div id="Whois" class="tabcontent">
+    <!-- <h3>Whois</h3> -->
+    <p>search an ip / username.</p>
+    <input type="text" id="whois-input" name="whoisinput" value=""><input type="button" value="Search"><br><br>
+  </div>
+
+  <div id="Bounties" class="tabcontent">
+    <!-- <h3>Avalible Bounties</h3> -->
+    <p>delete file x</p>
+    <p>delete file y</p>
+    <p>ddos ip x</p>
+    <p>ddos ip y</p>
+    <p>recover data from x</p>
+    <p>recover data from y</p>
+  </div>
+
+
+
+
+  <script>
+
+function openPage(pageName, elmnt, color) {
+  // Hide all elements with class="tabcontent" by default */
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Remove the background color of all tablinks/buttons
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show the specific tab content
+  //document.getElementById(pageName).innerHTML = "testing";
+  document.getElementById(pageName).style.display = "block";
+
+  // Add the specific color to the button used to open the tab content
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+document.getElementById("pcstatus").innerHTML = `
+<ul> 
+    <li> test12 </li>
+</ul>
+`
+  </script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
